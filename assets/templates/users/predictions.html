@@ -1,0 +1,101 @@
+{% extends 'userbase.html' %}
+
+{% block contents %}
+
+<section id="intro">
+    <div class="intro-text">
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <p><h2>Add Data</h2></p>
+        <form method="POST" action="{% url 'user_data_prediction' %}">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Age(age)</td>
+                    <td><input type="text" name="age"></td>
+                    <td>Age In Years</td>
+                </tr>
+                <tr>
+                    <td>Sex(sex)</td>
+                    <td>
+                        <select name="sex">
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
+                    </td>
+                    <td>1 = Male; 0 = Female</td>
+                </tr>
+                <tr>
+                    <td>Chest pain Type(cp)</td>
+                    <td><input type="text" name="cp"></td>
+                    <td>Min 1; max = 4</td>
+                </tr>
+                <tr>
+                    <td>Resting Blood Pressure(trestbps)</td>
+                    <td><input type="text" name="trestbps"></td>
+                    <td>in mm Hg on admission to the hospital</td>
+                </tr>
+                <tr>
+                    <td>Serum Cholestoral(chol)</td>
+                    <td><input type="text" name="chol"></td>
+                    <td>Serum cholestoral in mg/dl</td>
+                </tr>
+                <tr>
+                    <td>Fasting Blood Sugar(fbs)</td>
+                    <td><input type="text" name="fbs"></td>
+                    <td>(fasting blood sugar > 120 mg/dl) (1 = true; 0 = false)</td>
+                </tr>
+                <tr>
+                    <td>Resting Electrocardiographic(restecg)</td>
+                    <td><input type="text" name="restecg"></td>
+                    <td>Min = 0; max = 2</td>
+                </tr>
+                <tr>
+                    <td>Maximum Heart Rate Achieved(thalach)</td>
+                    <td><input type="text" name="thalach"></td>
+                    <td>Maximum heart rate achieved</td>
+                </tr>
+                <tr>
+                    <td>Exercise Induced Angina(exang)</td>
+                    <td>
+                        <select name="exang">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </td>
+                    <td>Exercise induced angina (1 = yes; 0 = no)</td>
+                </tr>
+                <tr>
+                    <td>ST Depression Induced (oldpeak)</td>
+                    <td><input type="text" name="oldpeak"></td>
+                    <td>ST depression induced by exercise relative to rest</td>
+                </tr>
+                <tr>
+                    <td>The Slope of the Peak(slope)</td>
+                    <td><input type="text" name="slope"></td>
+                    <td>The slope of the peak exercise ST segment Value 1: upsloping -- Value 2: flat -- Value 3: downsloping</td>
+                </tr>
+                <tr>
+                    <td>Number of Major Vessels(ca)</td>
+                    <td><input type="text" name="ca"></td>
+                    <td>Number of major vessels (0-3) colored by flourosopy</td>
+                </tr>
+                <tr>
+                    <td>Thallium Stress Test (thal)</td>
+                    <td><input type="text" name="thal"></td>
+                    <td>3 = normal; 6 = fixed defect; 7 = reversible defect</td>
+                </tr>
+              
+
+                <tr>
+                    <td><button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-left:20%;">Predict</button></td>
+                </tr>
+
+            </table>
+        </form>
+
+      
+
+    </div>
+</section>
+
+{% endblock %}

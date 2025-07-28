@@ -1,0 +1,17 @@
+{% extends 'Adminbase.html'%}
+{% load static %} 
+{% block contents %}
+
+<section id="intro" style="text-align: center; padding-top: 40px; padding-bottom: 60px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+    <div class="intro-text">
+        
+        
+        <div style="margin-top: 100px;"> <!-- This pushes the image further down -->
+            <img src="{% static 'accuracy_plot.png' %}" alt="Accuracy Graph" 
+                 style="width: 60%; height: auto; display: block; margin: auto; 
+                        border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);">
+        </div>
+    </div>
+</section>
+
+{% endblock %}

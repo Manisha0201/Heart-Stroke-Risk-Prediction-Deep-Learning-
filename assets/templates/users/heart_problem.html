@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<section id="intro">
+    <div class="intro-text">
+        <h2>Heart Disease Prediction Result:</h2>
+        <p>{{ prediction }}</p>
+
+        <h3>Suggestions and Recommendations:</h3>
+        <ul>
+            <li>Monitor your blood pressure and cholesterol levels regularly.</li>
+            <li>Follow a heart-healthy diet low in saturated fats and cholesterol.</li>
+            <li>Engage in regular physical activity to maintain cardiovascular health.</li>
+            <li>Quit smoking and avoid excessive alcohol consumption.</li>
+            <li>Consult with a cardiologist for personalized advice.</li>
+        </ul>
+    </div>
+</section>
+{% endblock %}

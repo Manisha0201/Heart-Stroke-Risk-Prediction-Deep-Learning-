@@ -1,0 +1,54 @@
+{% extends 'userbase.html' %}
+
+{% block contents %}
+
+<section id="intro" class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="container">
+        <div class="card shadow-lg p-3 mx-auto" style="max-width: 600px;">
+            <!-- Decreased Header Size -->
+            <h4 class="text-center text-primary mb-3">Heart Disease Prediction Result</h4>
+
+            <table class="table table-bordered">
+                <tr>
+                    <td><b>Risk Level:</b></td>
+                    <td>
+                        <span class="{% if risk_level == 'High' %}text-danger{% elif risk_level == 'Moderate' %}text-warning{% else %}text-success{% endif %} font-weight-bold">
+                            {{ risk_level }}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Risk Percentage:</b></td>
+                    <td>{{ risk_percentage }}%</td>
+                </tr>
+                <tr>
+                    <td><b>Main Caused Feature:</b></td>
+                    <td class="text-danger font-weight-bold">
+                        {% if caused_features %}
+                            {{ caused_features|join:", " }}
+                        {% else %}
+                            No major caused features detected.
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Recommendation:</b></td>
+                    <td>{{ recommendation }}</td>
+                </tr>
+            </table>
+
+            <!-- Buttons Side by Side -->
+            <div class="d-flex justify-content-between mt-3">
+                <a href="{% url 'user_data_prediction' %}" class="btn btn-outline-success flex-fill me-2">
+                    Check Another Prediction
+                </a>
+                <a href="{% url 'generate_pdf' risk_level=risk_level risk_percentage=risk_percentage caused_features=caused_features recommendation=recommendation %}" class="btn btn-primary flex-fill ms-2">
+                    Download Report (PDF)
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
